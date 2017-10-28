@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age,sex,size) {
+        this.name=name;
+        this.age=age;
+        this.sex=sex;
+        this.size=size;
+    }
+    var obj1={
+        name:'huang',
+        age:21,
+        sex:'女'
+    };
+
+    var obj2=new Person('lee',27,'男','40');
+
+    console.log(obj2.__proto__);
+
+    obj2.__proto__.say=function () {
+        alert('我是原型上的方法');
+    };
+
+    //assign方法   (目标对象,拷贝对象)  将拷贝对象的所有属性 赋值给目标对象, 有则覆盖 没有则添加,不能拷贝原型上的方法和属性
+    Object.assign(obj1,obj2);
+    console.log(obj1);
+//    obj1.say();   !报错!
+</script>
+</body>
+</html>
